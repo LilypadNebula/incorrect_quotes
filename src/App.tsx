@@ -1,40 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NameBlock from './components/NameBlock';
 
 interface AppProps {}
 
-function App({}: AppProps) {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
+interface Line {
+  speaker: string
+  line: string
+}
+
+type Quote = Line[]
+
+const quotes: Quote[] = [
+  [{speaker: 'One', line: 'I like water, it is tasty'},{speaker: 'One', line: 'Chocolate is my favorite fruit'}]
+]
+
+const App = () => {
+  const [charNum, setCharNum] = useState(0)
+  const [charOne, setCharOne] = useState("Character One")
+  const [charTwo, setCharTwo] = useState("Character Two")
+
+  const [quote, setQuote] = useState<Line>()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+      <header className="p-8 shadow bg-purple-200 text-3xl">Incorrect Quotes</header>
+      <main className="flex">
+        <div className="shadow-md p-8 h-screen">
+          <label className="flex flex-col my-4">Number of Characters
+            <select name="charNum" className="rounded" value={charNum} onChange={({target}) => {setCharNum(parseInt(target.value))}}>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+            </select>
+          </label>
+          <NameBlock name={charOne} update={setCharOne} />
+        </div>
+        <div>
+          <button className="p-2 rounded text-xl">Quote It!</button>
+          {`${charOne} is really cool, but I'm not sure about ${charTwo}`}
+        </div>
+      </main>
+    </>
   );
 }
 
