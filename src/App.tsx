@@ -32,11 +32,15 @@ const quotes: Record<number, Quote[]> = {
     [{ speaker: 1, line: 'Oh, my God. Do you know what this is?' }, { speaker: 2, line: "It’s a book. There’s a lot of those in here, this is a library." }],
     [{ speaker: 1, line: 'I will not stand here and be insulted!' }, { speaker: 2, line: "Then stand somewhere else and I’ll insult you there, I don’t care." }],
     [{ speaker: 1, line: "We agreed that's how we'd raise our kids" }, { speaker: 2, line: "Our kids? ${1}, we're not married" }, { speaker: 1, line: "Dude, we're a little married" }, { speaker: 2, line: "I know. I love it." }],
-    [{ speaker: 1, line: `Isn't the idea supposed to be "you saved my life, now I owe you a debt"?` }, { speaker: 2, line: "Nope. Other way around. You saved my life, so now I'm your problem. If you don't like it, then kill me." }, { speaker: 1, line: "God wanted me dead, now you get to find out why." }],
-
+    [{ speaker: 1, line: `Isn't the idea supposed to be "you saved my life, now I owe you a debt"?` }, { speaker: 2, line: "Nope. Other way around. You saved my life, so now I'm your problem. If you don't like it, then kill me." }, { speaker: 2, line: "God wanted me dead, now you get to find out why." }],
+    [{ speaker: 1, line: `I can't believe you live nearby and you won't let anyone crash at your place.` }, { speaker: 2, line: "You people already know too much about me." }, { speaker: 1, line: "I know exactly three facts about you and one of them is that you won’t let any of us crash at your place." }],
+    [{ speaker: 1, line: '${2} was banned from the Chicken Shack so we had to go out of town to get some.' }, { speaker: 2, line: `Well, they shouldn't say "all you can eat" if they don't mean it.` },{ speaker: 1, line: '${2} you ate a chair.' }],
+    [{ speaker: 1, line: 'I have a salsa emergency' }, { speaker: 2, line: "The condiment or the dance? I'm equipped for both." }],
+    [{ speaker: 1, line: 'You played me like a fiddle!' }, { speaker: 2, line: 'Oh no, ${1}. Fiddles are actually difficult to play. I played you like the cheap kazoo you are.' }],
   ],
   3: [
     [{ speaker: 1, line: "I know you're in love with them." }, { speaker: 2, line: "I'm not in love with ${3}." }, { speaker: 1, line: "I didn't say their name." }],
+    [{ speaker: 1, line: "How do I get someone to like me?" }, { speaker: 2, line: "Tell them about yourself!" }, { speaker: 1, line: "*later, to ${3} I’m socially awkward and can eat a cheeseburger in two bites." }],
     [{ speaker: 1, line: 'Has ${3} always had a habit of running headlong into certain death?' }, { speaker: 2, line: "Sometimes they walk, occasionally they shuffle, periodically they amble. Once, I'm pretty sure I saw them trip into certain death." }],
     [{ speaker: 1, line: "You've acted like ${3}'s dad for years" }, { speaker: 2, line: "More like their slightly older, much wiser brother." }, { speaker: 1, line: "Whatever you need to tell yourself." }],
     [{ speaker: 1, line: "${3} won't come out of their room." }, { speaker: 2, line: "Just tell them I said something." }, { speaker: 1, line: "Like what?" }, { speaker: 2, line: "Anything factually incorrect." }, { speaker: 3, line: "*a few minutes later* Did you just say the sun is a fucking planet-" }],
