@@ -77,13 +77,13 @@ const App = () => {
 
   return (
     <>
-      <header className="p-8 flex items-center h-1/6 shadow bg-purple-200 text-3xl font-line">Incorrect Quotes</header>
-      <main className="flex flex-col lg:flex-row h-5/6 font-line">
+      <header className="p-8 flex items-center h-1/6 shadow bg-purple-200 text-3xl">Incorrect Quotes</header>
+      <main className="flex flex-col lg:flex-row h-5/6 font-speaker">
         <div className="lg:shadow-md p-8 flex flex-col lg:h-full">
           <button className="p-2 rounded text-xl" onClick={() => randomQuote()}>Quote It!</button>
           <button className={`p-2 rounded text-xl ${currentQuote == null && 'text-gray-400 cursor-not-allowed'}`} onClick={() => screenshot()} disabled={currentQuote == null}>Take a Pic</button>
-          <label className="flex flex-col my-4">Number of Characters
-            <select name="charNum" className="rounded" value={charNum} onChange={({ target }) => {
+          <label className="flex flex-col my-4 text-lg">Number of Characters
+            <select name="charNum" className="rounded text-lg" value={charNum} onChange={({ target }) => {
               setQuote(null)
               setCharNum(parseInt(target.value))
             }}>
@@ -106,7 +106,6 @@ const App = () => {
               </div>
             ))}
           </div>
-          <div className="fixed bottom-0">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
       </main>
     </>
