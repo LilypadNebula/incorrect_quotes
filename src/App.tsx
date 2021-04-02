@@ -39,6 +39,7 @@ const quotes: Record<number, Quote[]> = {
     [{ speaker: 1, line: '${2} was banned from the Chicken Shack so we had to go out of town to get some.' }, { speaker: 2, line: `Well, they shouldn't say "all you can eat" if they don't mean it.` },{ speaker: 1, line: '${2} you ate a chair.' }],
     [{ speaker: 1, line: 'I have a salsa emergency' }, { speaker: 2, line: "The condiment or the dance? I'm equipped for both." }],
     [{ speaker: 1, line: 'You played me like a fiddle!' }, { speaker: 2, line: 'Oh no, ${1}. Fiddles are actually difficult to play. I played you like the cheap kazoo you are.' }],
+    [{ speaker: 1, line: 'Hey ${2}, that outfit looks really good on you' }, { speaker: 2, line: "Thanks! It was 50% off" }, { speaker: 1, line: "I'd like to see it 100% off" }, { speaker: 2, line: "...They can't just give things away for free" },{ speaker: 1, line: "That's not what I-" }, { speaker: 2, line: "That's a terrible way to run a business, ${1}" }],
   ],
   3: [
     [{ speaker: 1, line: "I know you're in love with them." }, { speaker: 2, line: "I'm not in love with ${3}." }, { speaker: 1, line: "I didn't say their name." }],
