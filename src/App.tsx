@@ -2,6 +2,8 @@ import html2canvas from 'html2canvas';
 import FileSaver from 'file-saver'
 import React, { useState, useRef } from 'react';
 import NameBlock from './components/NameBlock';
+import ReactModal from 'react-modal'
+import {XIcon} from '@heroicons/react/outline'
 
 type Speaker = 1 | 2 | 3
 
@@ -59,6 +61,8 @@ const App = () => {
   const [currentQuote, setQuote] = useState<Quote | null>(null)
   const quoteRef = useRef<HTMLDivElement | null>(null)
 
+  const [showModal, setShowModal] = useState(false)
+
   const randomQuote = () => {
     const quoteList = quotes[charNum]
     setQuote(quoteList[Math.floor(Math.random() * (quoteList.length))])
@@ -74,10 +78,14 @@ const App = () => {
 
   }
 
+  ReactModal.setAppElement('#root')
 
   return (
     <>
-      <header className="p-8 flex items-center h-1/6 shadow bg-purple-200 text-3xl">Incorrect Quotes</header>
+      <header className="p-8 flex items-center justify-between h-1/6 shadow bg-purple-200 text-lg lg:text-3xl">
+        <p>Incorrect Quotes</p>
+        <button className="underline" onClick={() => setShowModal(true)}>About</button>
+      </header>
       <main className="flex flex-col lg:flex-row h-5/6 font-speaker">
         <div className="lg:shadow-md p-8 flex flex-col lg:h-full">
           <button className="p-2 rounded text-xl" onClick={() => randomQuote()}>Quote It!</button>
@@ -108,6 +116,17 @@ const App = () => {
           </div>
         </div>
       </main>
+      <ReactModal isOpen={showModal} onRequestClose={() => setShowModal(false)} closeTimeoutMS={200}>
+        <div className="flex flex-col h-full items-center justify-around text-lg lg:text-3xl text-center">
+          <div className="leading-relaxed">
+          <p>Hello! This is an incorrect quotes generator, to make funny pictures of your characters saying things from shows/books/memes/etc.</p>
+          <p>It's entirely free to use and you are allowed to use the images/text for anything you'd like without attribution</p>
+          <p>This app is created by <a href="http://twitter.com/lilypadnebula">Lily, aka LilypadNebula</a></p>
+          </div>
+          <div>Icons used are from <a href="https://www.heroicons.com/" title="Heroicons">Heroicons</a></div>
+        </div>
+        <button onClick={() => setShowModal(false)} className="absolute top-2 right-2 lg:top-8 lg:right-8"><XIcon className="h-10 w-10"/></button>
+      </ReactModal>
     </>
   );
 }
