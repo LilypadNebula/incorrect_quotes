@@ -4,8 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        speaker: ['Oxygen', 'sans-serif'],
-        line: ['Cantarell', 'sans-serif']
+        speaker: ['Montserrat', 'sans-serif'],
+        line: ['Raleway', 'sans-serif']
+      },
+      maxWidth: {
+        '1/2': '50%'
       }
     },
   },

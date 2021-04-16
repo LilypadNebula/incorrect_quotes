@@ -20,12 +20,12 @@ const quotes: Record<number, Quote[]> = {
     [
       {
         speaker: 1,
-        nameSuffix: ", sowing",
+        nameSuffix: ', sowing',
         line: 'Haha fuck yeah!!! Yes!!',
       },
       {
         speaker: 1,
-        nameSuffix: ", reaping",
+        nameSuffix: ', reaping',
         line: 'Well this fucking sucks. What the fuck.',
       },
     ],
@@ -46,18 +46,22 @@ const quotes: Record<number, Quote[]> = {
       {
         speaker: 1,
         nameSuffix: ', holding a Minion plushie',
-        line: 'I won this ugly yellow toddler. Which is one of the most beautiful things I’ve ever seen.',
+        line:
+          'I won this ugly yellow toddler. Which is one of the most beautiful things I’ve ever seen.',
       },
     ],
     [
       {
         speaker: 1,
-        line: 'The only way to defeat a bully is to stand up to them! Trust me, I have bullied a lot of people.' },
+        line:
+          'The only way to defeat a bully is to stand up to them! Trust me, I have bullied a lot of people.',
+      },
     ],
     [
       {
         speaker: 1,
-        line: 'You know the sound that a fork makes in the garbage disposal? That’s the sound that my brain makes all the time.',
+        line:
+          'You know the sound that a fork makes in the garbage disposal? That’s the sound that my brain makes all the time.',
       },
     ],
     [
@@ -195,9 +199,8 @@ const quotes: Record<number, Quote[]> = {
       { speaker: 2, line: 'Tell them about yourself!' },
       {
         speaker: 1,
-        nameSuffix: 'later, to ${3}',
-        line:
-          'I’m socially awkward and can eat a cheeseburger in two bites.',
+        nameSuffix: ', later, to ${3}',
+        line: 'I’m socially awkward and can eat a cheeseburger in two bites.',
       },
     ],
     [
@@ -228,8 +231,30 @@ const quotes: Record<number, Quote[]> = {
       {
         speaker: 3,
         nameSuffix: ', a few minutes later',
+        line: 'Did you just say the sun is a fucking planet-',
+      },
+    ],
+    [
+      {
+        speaker: 1,
         line:
-          'Did you just say the sun is a fucking planet-',
+          'Why is everyone so obsessed with top or bottom? Honestly, I’d just be excited to have a bunk bed.',
+      },
+      { speaker: 2, line: '' },
+      { speaker: 3, line: '' },
+      { speaker: 2, line: "I'm gonna tell them." },
+      { speaker: 3, line: "Don't you dare." },
+    ],
+    [
+      {
+        speaker: 1,
+        line: 'Hey, no, you stay out of this, this is between me and ${2}!',
+      },
+      { speaker: 3, line: 'So ${2} knows about this?' },
+      {
+        speaker: 3,
+        nameSuffix: ', running away',
+        line: 'No, this is between me and me!',
       },
     ],
   ],
@@ -324,20 +349,26 @@ const App = () => {
             update={(val: string) => setChars({ ...chars, 3: val })}
           />
         </div>
-        <div className="flex flex-col items-center justify-around w-full">
-          <div className="flex flex-col p-2" ref={quoteRef}>
+        <div className="flex items-center justify-center w-full">
+          <div className="p-2" ref={quoteRef}>
             {currentQuote != null &&
               currentQuote.map((line) => (
                 <div
                   key={line.line}
-                  className="text-lg lg:text-2xl flex mb-1 pb-1 w-full"
+                  className="text-lg lg:text-2xl flex justify-center mb-2 pb-1"
                 >
-                  <p className="font-speaker mr-1 font-black">
-                    {line.nameSuffix == null ? chars[line.speaker] : `${chars[line.speaker]}${line.nameSuffix}`}:
+                  <p className="font-speaker mr-3 font-black w-2/5 text-right">
+                    {line.nameSuffix == null
+                      ? chars[line.speaker]
+                      : `${chars[line.speaker]}${interpolate(
+                          line.nameSuffix,
+                          chars,
+                        )}`}
+                    :
                   </p>
-                  <p className="font-line text-justify max-w-xl font-light">
+                  <p className="font-line font-light w-3/5">
                     {' '}
-                    {interpolate(line.line, chars)}
+                    {line.line.length > 0 ? interpolate(line.line, chars) : ' '}
                   </p>
                 </div>
               ))}
