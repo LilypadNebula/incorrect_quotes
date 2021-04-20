@@ -7,9 +7,6 @@ module.exports = {
         speaker: ['Montserrat', 'sans-serif'],
         line: ['Raleway', 'sans-serif']
       },
-      maxWidth: {
-        '1/2': '50%'
-      }
     },
   },
   variants: {

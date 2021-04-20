@@ -351,14 +351,14 @@ const App = () => {
           />
         </div>
         <div className="flex items-center justify-center w-full">
-          <div className="p-2" ref={quoteRef}>
+          <div className="p-2 max-w-full" ref={quoteRef}>
             {currentQuote != null &&
-              currentQuote.map((line) => (
+              currentQuote.map((line, index) => (
                 <div
-                  key={line.line}
+                  key={`${line.speaker}_${line.line}_${index}`}
                   className="text-lg lg:text-2xl flex justify-center mb-2 pb-1"
                 >
-                  <p className="font-speaker mr-3 font-black w-2/5 text-right">
+                  <p className="font-speaker mr-3 font-black text-right">
                     {line.nameSuffix == null
                       ? chars[line.speaker]
                       : `${chars[line.speaker]}${interpolate(
@@ -367,7 +367,7 @@ const App = () => {
                         )}`}
                     :
                   </p>
-                  <p className="font-line font-light w-3/5">
+                  <p className="font-line font-light flex-grow">
                     {' '}
                     {line.line.length > 0 ? interpolate(line.line, chars) : ' '}
                   </p>
