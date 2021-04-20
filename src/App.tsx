@@ -282,6 +282,7 @@ const App = () => {
     while (newIndex === currentIndex) {
       newIndex = Math.floor(Math.random() * quoteList.length)
     }
+    setIndex(newIndex)
     setQuote(quoteList[newIndex])
   }
 
